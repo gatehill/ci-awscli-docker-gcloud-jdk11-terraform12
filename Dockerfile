@@ -43,6 +43,19 @@ RUN mkdir -p /usr/local/gcloud \
 
 ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin:$HOME/.local/bin
 
+# Install kubectl
+RUN export PATH=$PATH:/usr/local/gcloud/google-cloud-sdk/bin \
+  && gcloud components install kubectl --quiet
+
+# Install Helm
+RUN export PATH=$PATH:$HOME/.local/bin/ \
+  && cd /tmp \
+  && curl -O -L https://get.helm.sh/helm-v3.0.2-linux-amd64.tar.gz \
+  && tar xvf helm-v3.0.2-linux-amd64.tar.gz \
+  && cd $HOME/.local/bin \
+  && mv /tmp/linux-amd64/helm . \
+  && chmod u+x helm
+
 # Install Terraform
 RUN mkdir -p ~/.local/bin && \
     cd ~/.local/bin && \

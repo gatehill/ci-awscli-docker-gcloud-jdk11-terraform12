@@ -2,7 +2,7 @@ FROM adoptopenjdk:11-jdk-hotspot
 
 ARG AWSCLI_VER="1.16.118"
 ARG COMPOSE_VER="1.23.2"
-ARG TERRAFORM_VER="0.12.26"
+ARG TERRAFORM_VER="0.12.28"
 
 # Set up directories
 RUN mkdir -p ~/.local/bin

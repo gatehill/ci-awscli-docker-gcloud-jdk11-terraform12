@@ -18,7 +18,7 @@ RUN apt-get update -y && \
         unzip
 
 # Install AWS CLI
-RUN apt-get install -y python-pip && \
+RUN apt-get install -y python3-pip && \
     pip install awscli==${AWSCLI_VER} --upgrade --user
 
 # Install Docker
